@@ -14,9 +14,29 @@ import '../styles/style.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+import { useEffect, useState } from "react";
+import { MetaMaskSDK } from "@metamask/sdk"
+
 import Head from "next/head";
 
 function MyApp({ Component, pageProps }) {
+  const [mmsdk, setMMSDK] = useState(null);
+
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const sdk = new MetaMaskSDK({
+        dappMetadata: {
+          name: "Coinlye",
+          url: window.location.href,
+        },
+        infuraAPIKey: process.env.NEXT_PUBLIC_INFURA_API_KEY,
+      });
+
+      setMMSDK(sdk);
+    }
+  }, []);
+
   return (
     <div>
       <Head>
@@ -27,7 +47,6 @@ function MyApp({ Component, pageProps }) {
         <ToastContainer />
       </GlobalAOSProvider>
     </div>
-
   )
 }
 

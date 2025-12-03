@@ -18,16 +18,16 @@ import Scrollbar from '../components/scrollbar/scrollbar';
 
 const HomePage = () => {
 
-    useEffect(() => {
-        if (typeof window !== "undefined" && window.ethereum) {
-          window.ethereum
-            .request({ method: "eth_requestAccounts" })
-            .then(accounts => console.log("Connected to:", accounts))
-            .catch(err => console.error("Error:", err));
-        } else {
-          console.log("MetaMask / Trust Wallet not detected");
-        }
-      }, []);
+    // useEffect(() => {
+    //     if (typeof window !== "undefined" && window.ethereum) {
+    //       window.ethereum
+    //         .request({ method: "eth_requestAccounts" })
+    //         .then(accounts => console.log("Connected to:", accounts))
+    //         .catch(err => console.error("Error:", err));
+    //     } else {
+    //       console.log("MetaMask / Trust Wallet not detected");
+    //     }
+    //   }, []);
 
     return (
         <Fragment>
@@ -53,4 +53,5 @@ const HomePage = () => {
         </Fragment>
     )
 };
+
 export default HomePage;

@@ -84,4 +84,6 @@ const blogs = [
         thumb:'#investment',
     }
 ];
+
+
 export default blogs;
